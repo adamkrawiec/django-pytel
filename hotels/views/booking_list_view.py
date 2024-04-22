@@ -5,7 +5,7 @@ from rest_framework import status
 from ..models import Booking, Room
 from ..serializers import BookingSerializer, RoomSerializer
 from ..bookings.actions.create import BookingCreateAction
-
+from ..utils import parse_date
 from datetime import datetime
 
 class BookingListView(APIView):
@@ -21,8 +21,8 @@ class BookingListView(APIView):
         '''
         Create a booking for a room
         '''
-        check_in = datetime.strptime(request.data.get('check_in'), '%d-%m-%Y')
-        check_out = datetime.strptime(request.data.get('check_out'), '%d-%m-%Y')
+        check_in = parse_date(request.data.get('check_in'))
+        check_out = parse_date(request.data.get('check_out'))
         serializer = BookingCreateAction(room_id, check_in, check_out).execute()
 
         if serializer.is_valid():
