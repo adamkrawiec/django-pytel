@@ -7,7 +7,8 @@ from .views import(
     CityDetailView,
     RoomDetailView,
     BookingListView,
-    HotelRoomsListView
+    HotelRoomsListView,
+    BookingDetailView
 )
 
 urlpatterns = [
@@ -19,4 +20,5 @@ urlpatterns = [
     path('<int:hotel_id>/rooms', HotelRoomsListView.as_view(), name='hotel_rooms_list'),
     path('<int:hotel_id>/rooms/<int:room_id>', RoomDetailView.as_view(), name='room_detail'),
     path('<int:hotel_id>/rooms/<int:room_id>/bookings', BookingListView.as_view(), name='booking_list'),
+    path('bookings/<int:booking_id>', BookingDetailView.as_view(), name='booking_detail')
 ]
