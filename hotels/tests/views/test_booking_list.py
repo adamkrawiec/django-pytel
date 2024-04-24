@@ -19,8 +19,7 @@ class BookingListTest(TestCase):
         Runs a POST request to hotels/booking endpoint and checks if the response is 201 Created
         """
         response = self.client.post(
-            reverse("booking_list",
-            args=(self.hotel.id, self.room.id)),
+            reverse("booking_list", args=(self.hotel.id, self.room.id)),
             { "check_in": "01-01-2021", "check_out": "02-01-2021" }
         )
 
@@ -32,8 +31,7 @@ class BookingListTest(TestCase):
         """
         Booking(room=self.room, check_in="2021-01-01", check_out="2021-01-02").save()
         response = self.client.post(
-            reverse("booking_list",
-            args=(self.hotel.id, self.room.id)),
+            reverse("booking_list", args=(self.hotel.id, self.room.id)),
             { "check_in": "01-01-2021", "check_out": "02-01-2021" }
         )
         self.assertEqual(response.status_code, 400)

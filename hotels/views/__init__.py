@@ -4,5 +4,6 @@ from .city_list_view import CityListView
 from .city_detail_view import CityDetailView
 from .room_detail_view import RoomDetailView
 from .booking_list_view import BookingListView
+from .booking_detail_view import BookingDetailView
 from .hotel_rooms_list_view import HotelRoomsListView
 from .hotel_search_view import HotelSearchView
